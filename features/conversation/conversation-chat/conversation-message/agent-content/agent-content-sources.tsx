@@ -55,14 +55,18 @@ const SourceRow = memo(function SourceRow(props: { source: IAgentSource }) {
   const { source } = props
   const { theme, themed } = useAppTheme()
 
+  // Only open http(s) links in the WebView so unexpected URI schemes can't be
+  // handed to an external scheme handler.
+  const isSafeHttpUrl = !!source.url && /^https?:\/\//i.test(source.url)
+
   const handlePress = useCallback(() => {
-    if (source.url) {
+    if (isSafeHttpUrl && source.url) {
       navigate("WebviewPreview", { uri: source.url })
     }
-  }, [source.url])
+  }, [isSafeHttpUrl, source.url])
 
   return (
-    <Pressable withHaptics onPress={handlePress} disabled={!source.url}>
+    <Pressable withHaptics onPress={handlePress} disabled={!isSafeHttpUrl}>
       <HStack style={themed($sourceRow)}>
         <Center style={themed($favicon)}>
           {source.faviconUrl ? (
@@ -88,7 +92,7 @@ const SourceRow = memo(function SourceRow(props: { source: IAgentSource }) {
           )}
         </VStack>
 
-        {!!source.url && (
+        {isSafeHttpUrl && (
           <Icon
             icon="arrow.up.right"
             size={theme.iconSize.xs}

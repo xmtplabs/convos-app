@@ -72,7 +72,7 @@ const ThinkingStep = memo(function ThinkingStep(props: { step: IAgentThinkingSte
         <Text
           preset="small"
           color={step.status === "pending" ? "secondary" : "primary"}
-          weight={step.status === "active" ? "medium" : "regular"}
+          weight={step.status === "active" ? "medium" : "normal"}
         >
           {step.label}
         </Text>
