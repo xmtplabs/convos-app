@@ -1,5 +1,5 @@
 import { memo, useCallback } from "react"
-import { ViewStyle } from "react-native"
+import { ImageStyle, ViewStyle } from "react-native"
 import { Image } from "@/design-system/image"
 import { Center } from "@/design-system/Center"
 import { HStack } from "@/design-system/HStack"
@@ -113,7 +113,7 @@ const $favicon: ThemedStyle<ViewStyle> = ({ spacing, colors, borderRadius }) => 
   overflow: "hidden",
 })
 
-const $faviconImage: ThemedStyle<ViewStyle> = ({ spacing, borderRadius }) => ({
+const $faviconImage: ThemedStyle<ImageStyle> = ({ spacing, borderRadius }) => ({
   width: spacing.lg,
   height: spacing.lg,
   borderRadius: borderRadius.xs,
