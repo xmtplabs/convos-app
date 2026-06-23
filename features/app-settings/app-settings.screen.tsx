@@ -23,8 +23,14 @@ export const AppSettingsScreen = memo(function AppSettingsScreen() {
   })
 
   const generalSettings = useMemo((): ISettingsListRow[] => {
-    return [{ label: "Environment", value: getEnv() }].filter(Boolean)
-  }, [])
+    return [
+      { label: "Environment", value: getEnv() },
+      {
+        label: "Agent content examples",
+        onPress: () => router.navigate("AgentContentExamples"),
+      },
+    ].filter(Boolean)
+  }, [router])
 
   return (
     <Screen

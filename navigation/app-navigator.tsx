@@ -9,6 +9,7 @@ import { AuthOnboardingScreen } from "@/features/auth-onboarding/screens/auth-on
 import { useAuthenticationStore } from "@/features/authentication/authentication.store"
 import { useHydrateAuth } from "@/features/authentication/hydrate-auth"
 import { BlockedConversationsScreen } from "@/features/blocked-conversations/blocked-conversations.screen"
+import { AgentContentExamplesScreen } from "@/features/conversation/conversation-chat/conversation-message/agent-content/agent-content-examples.screen"
 import { ConversationScreen } from "@/features/conversation/conversation-chat/conversation.screen"
 import { ConversationListScreen } from "@/features/conversation/conversation-list/conversation-list.screen"
 import { ConversationRequestsListScreen } from "@/features/conversation/conversation-requests-list/conversation-requests-list.screen"
@@ -248,6 +249,10 @@ function renderSignedInScreens(theme: ITheme) {
         }}
       />
       <AppNativeStack.Screen name="AppSettings" component={AppSettingsScreen} />
+      <AppNativeStack.Screen
+        name="AgentContentExamples"
+        component={AgentContentExamplesScreen}
+      />
     </AppNativeStack.Group>
   )
 }

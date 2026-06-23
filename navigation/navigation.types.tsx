@@ -50,6 +50,7 @@ export type NavigationParamList = {
 
   // UI Tests
   Examples: undefined
+  AgentContentExamples: undefined
 
   AppSettings: undefined
   WebviewPreview: { uri: string }
